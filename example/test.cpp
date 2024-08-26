@@ -8,7 +8,7 @@
 
 int main()
 {
-    ICM20948_i2c obj(1);
+    icm20948::ICM20948_I2C obj(1);
 
     // obj.settings.accel.sample_rate_div = 4;
     // obj.settings.gyro.sample_rate_div = 4;
@@ -79,19 +79,19 @@ int main()
         // duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         // std::cout << "Time needed to parse magn data: " << duration.count() << "us" << std::endl;
 
-        // std::cout << std::setprecision(2) << "Accel:\n"
-        //                                      "  x = " << obj.accel[0] << std::endl <<
-        //                                      "  y = " << obj.accel[1] << std::endl <<
-        //                                      "  z = " << obj.accel[2] << std::endl << std::endl;
-        // std::cout << std::setprecision(2) << "Gyro:\n"
-                                            //  "  x = " << obj.gyro[0] << std::endl <<
-                                            //  "  y = " << obj.gyro[1] << std::endl <<
-                                            //  "  z = " << obj.gyro[2] << std::endl << std::endl;
+        std::cout << std::setprecision(2) << "Accel:\n"
+                                             "  x = " << obj.accel[0] << std::endl <<
+                                             "  y = " << obj.accel[1] << std::endl <<
+                                             "  z = " << obj.accel[2] << std::endl << std::endl;
+        std::cout << std::setprecision(2) << "Gyro:\n"
+                                             "  x = " << obj.gyro[0] << std::endl <<
+                                             "  y = " << obj.gyro[1] << std::endl <<
+                                             "  z = " << obj.gyro[2] << std::endl << std::endl;
         std::cout << std::setprecision(2) << "Magn:\n"
                                              "  x = " << obj.magn[0] << std::endl <<
                                              "  y = " << obj.magn[1] << std::endl <<
                                              "  z = " << obj.magn[2] << std::endl << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         std::cout << std::endl;
     }
 }
